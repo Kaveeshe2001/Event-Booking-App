@@ -1,5 +1,7 @@
 
 using EventBookingBackend.Data;
+using EventBookingBackend.Repositories.Interface;
+using EventBookingBackend.Repositories.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -54,6 +56,7 @@ namespace EventBookingBackend
                  };
              });
 
+            builder.Services.AddTransient<ITokenService, TokenService>();
 
             var app = builder.Build();
 
