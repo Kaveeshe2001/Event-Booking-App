@@ -19,7 +19,7 @@ namespace EventBookingBackend.Controllers
             _service = service;
         }
 
-        [HttpPost]
+        [HttpPost("Refresh")]
         public IActionResult Refresh(RefreshTokenRequest tokenApiModel)
         {
             if (tokenApiModel is null)
@@ -43,7 +43,7 @@ namespace EventBookingBackend.Controllers
         }
 
         //revoken is use for removing token entry
-        [HttpPost, Authorize]
+        [HttpPost("Revoke"), Authorize]
         public IActionResult Revoke()
         {
             try
