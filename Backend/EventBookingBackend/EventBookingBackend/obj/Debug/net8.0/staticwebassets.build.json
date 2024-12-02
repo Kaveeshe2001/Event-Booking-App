@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "48rGHe+3wiWbCT5E/EpQh8iT8F3CJBMxpcEo1byKaII=",
+  "Source": "EventBookingBackend",
+  "BasePath": "_content/EventBookingBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
