@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EventBookingBackend.Controllers
 {
+    [Route("api/[controller]/{action}")]
+    [ApiController]
     public class TokenController : Controller
     {
         private readonly ApplicationDbContext _ctx;
