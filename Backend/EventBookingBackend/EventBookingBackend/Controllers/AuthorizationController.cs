@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace EventBookingBackend.Controllers
 {
-    [Route("api/[controller]/{action}")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthorizationController : ControllerBase
     {
@@ -27,6 +27,46 @@ namespace EventBookingBackend.Controllers
             _roleManager = roleManager;
             _tokenService = tokenService;
 
+        }
+
+        [HttpPost("ChangePassword")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDto passwordDto)
+        {
+            var status = new Status();
+            // check validations
+            if (!ModelState.IsValid)
+            {
+                status.StatusCode = 0;
+                status.Message = "please pass all the valid fields";
+                return Ok(status);
+            }
+            // lets find the user
+            var user = await _userManager.FindByNameAsync(passwordDto.UserName);
+            if (user is null)
+            {
+                status.StatusCode = 0;
+                status.Message = "invalid username";
+                return Ok(status);
+            }
+            // check current password
+            if (!await _userManager.CheckPasswordAsync(user, passwordDto.CurrentPassword))
+            {
+                status.StatusCode = 0;
+                status.Message = "invalid current password";
+                return Ok(status);
+            }
+
+            // change password here
+            var result = await _userManager.ChangePasswordAsync(user, passwordDto.CurrentPassword, passwordDto.NewPassword);
+            if (!result.Succeeded)
+            {
+                status.StatusCode = 0;
+                status.Message = "Failed to change password";
+                return Ok(status);
+            }
+            status.StatusCode = 1;
+            status.Message = "Password has changed successfully";
+            return Ok(result);
         }
 
         [HttpPost("Login")]
@@ -137,6 +177,56 @@ namespace EventBookingBackend.Controllers
             if (await _roleManager.RoleExistsAsync(UserRoles.User))
             {
                 await _userManager.AddToRoleAsync(user, UserRoles.User);
+            }
+            status.StatusCode = 1;
+            status.Message = "Sucessfully registered";
+            return Ok(status);
+        }
+
+        // after registering admin we will comment this code, because i want only one admin in this application
+        [HttpPost("RegistrationAdmin")]
+        public async Task<IActionResult> RegistrationAdmin([FromBody] RegistrationDto registerDto)
+        {
+            var status = new Status();
+            if (!ModelState.IsValid)
+            {
+                status.StatusCode = 0;
+                status.Message = "Please pass all the required fields";
+                return Ok(status);
+            }
+            // check if user exists
+            var userExists = await _userManager.FindByNameAsync(registerDto.Username);
+            if (userExists != null)
+            {
+                status.StatusCode = 0;
+                status.Message = "Invalid username";
+                return Ok(status);
+            }
+            var user = new ApplicationUser
+            {
+                UserName = registerDto.Username,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                Email = registerDto.Email,
+                Name = registerDto.Name
+            };
+
+            // create a user here
+            var result = await _userManager.CreateAsync(user, registerDto.Password);
+            if (!result.Succeeded)
+            {
+                status.StatusCode = 0;
+                status.Message = "User creation failed";
+                return Ok(status);
+            }
+
+            // add roles here
+            // for admin registration UserRoles.Admin instead of UserRoles.Roles
+            if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
+                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+            if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
+            {
+                await _userManager.AddToRoleAsync(user, UserRoles.Admin);
             }
             status.StatusCode = 1;
             status.Message = "Sucessfully registered";
