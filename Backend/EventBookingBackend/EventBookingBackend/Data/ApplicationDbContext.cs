@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using EventBookingBackend.Models.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventBookingBackend.Data
@@ -9,5 +10,7 @@ namespace EventBookingBackend.Data
         {
 
         }
+
+        public DbSet<TokenInfo> TokenInfo { get; set; }
     }
 }

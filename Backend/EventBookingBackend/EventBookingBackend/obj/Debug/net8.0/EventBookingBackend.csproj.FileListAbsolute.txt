@@ -171,3 +171,5 @@ E:\My Project 2\Event-Booking-App\Backend\EventBookingBackend\EventBookingBacken
 E:\My Project 2\Event-Booking-App\Backend\EventBookingBackend\EventBookingBackend\obj\Debug\net8.0\EventBookingBackend.pdb
 E:\My Project 2\Event-Booking-App\Backend\EventBookingBackend\EventBookingBackend\obj\Debug\net8.0\EventBookingBackend.genruntimeconfig.cache
 E:\My Project 2\Event-Booking-App\Backend\EventBookingBackend\EventBookingBackend\obj\Debug\net8.0\ref\EventBookingBackend.dll
+E:\My Project 2\Event-Booking-App\Backend\EventBookingBackend\EventBookingBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\My Project 2\Event-Booking-App\Backend\EventBookingBackend\EventBookingBackend\obj\Debug\net8.0\EventBookingBackend.sourcelink.json
