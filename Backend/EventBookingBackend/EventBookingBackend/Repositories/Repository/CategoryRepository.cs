@@ -1,6 +1,7 @@
 ﻿using EventBookingBackend.Data;
 using EventBookingBackend.Models;
 using EventBookingBackend.Repositories.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventBookingBackend.Repositories.Repository
 {
@@ -17,24 +18,45 @@ namespace EventBookingBackend.Repositories.Repository
             return await _context.Category.ToListAsync();
         }
 
-        public Task<Category?> CreateAsync(Category categorymodel)
+        public async Task<Category?> CreateAsync(Category categorymodel)
         {
-            throw new NotImplementedException();
+            await _context.Category.AddAsync(categorymodel);
+            await _context.SaveChangesAsync();
+            return categorymodel;
         }
         
-        public Task<Category?> GetByIdAsync(int id)
+        public async Task<Category?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Category.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<Category?> DeleteAsync(int id)
+        public async Task<Category?> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var categorymodel = await _context.Category.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (categorymodel == null)
+            {
+                return null;
+            }
+
+            _context.Category.Remove(categorymodel);
+            await _context.SaveChangesAsync();
+            return categorymodel;
         }
 
-        public Task<Category?> UpdateAsync(int id, Category categorymodel)
+        public async Task<Category?> UpdateAsync(int id, Category categorymodel)
         {
-            throw new NotImplementedException();
+            var existingcategory = await _context.Category.FindAsync(id);
+            if (existingcategory == null)
+            {
+                return null;
+            }
+
+            existingcategory.CategoryName = categorymodel.CategoryName;
+            existingcategory.Image = categorymodel.Image;
+
+            await _context.SaveChangesAsync();
+            return existingcategory;
         }
     }
 }

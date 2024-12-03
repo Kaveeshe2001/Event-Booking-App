@@ -12,5 +12,7 @@ namespace EventBookingBackend.Models
 
         [Required]
         public string Image { get; set; } = string.Empty;
+
+        public List<Event> Events { get; set; } = new List<Event>();
     }
 }
