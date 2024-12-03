@@ -41,9 +41,9 @@ namespace EventBookingBackend.Models
         public Category Category { get; set; }
 
         [Required]
-        [ForeignKey("ApplicationUser")]
-        public int UserId { get; set; }
-        public User User { get; set; }
+        [ForeignKey("Store")]
+        public int StoreId { get; set; }
+        public Store Store { get; set; }
 
     }
 }

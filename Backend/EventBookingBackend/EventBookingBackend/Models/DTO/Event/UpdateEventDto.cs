@@ -29,6 +29,9 @@ namespace EventBookingBackend.Models.DTO.Event
         public string Capacity { get; set; } = string.Empty;
 
         [Required]
+        public int StoreId { get; set; }
+
+        [Required]
         public int CategoryId { get; set; }
     }
 }

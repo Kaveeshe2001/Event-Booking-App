@@ -20,7 +20,41 @@ namespace EventBookingBackend.Mappers
                 Capacity = eventmodel.Capacity,
                 CreatedOn = eventmodel.CreatedOn,
                 CategoryId = eventmodel.CategoryId,
-                UserId = eventmodel.UserId,
+                StoreId = eventmodel.StoreId,
+            };
+        }
+
+        public static Event ToEventFromCreate(this CreateEventDto eventDto, int storeId)
+        {
+            return new Event
+            {
+                EventName = eventDto.EventName,
+                Image = eventDto.Image,
+                Description = eventDto.Description,
+                TicketPrice = eventDto.TicketPrice,
+                Location = eventDto.Location,
+                Date = eventDto.Date,
+                Time = eventDto.Time,
+                Capacity = eventDto.Capacity,
+                CategoryId = eventDto.CategoryId,
+                StoreId = storeId
+            };
+        }
+
+        public static Event ToEventFromUpdate(this UpdateEventDto eventDto, int id)
+        {
+            return new Event
+            {
+                EventName = eventDto.EventName,
+                Image = eventDto.Image,
+                Description = eventDto.Description,
+                TicketPrice = eventDto.TicketPrice,
+                Location = eventDto.Location,
+                Date = eventDto.Date,
+                Time = eventDto.Time,
+                Capacity = eventDto.Capacity,
+                CategoryId = eventDto.CategoryId,
+                StoreId = eventDto.StoreId,
             };
         }
     }

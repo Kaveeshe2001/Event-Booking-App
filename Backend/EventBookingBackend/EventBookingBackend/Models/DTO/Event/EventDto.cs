@@ -13,6 +13,6 @@
         public string Capacity {  get; set; } = string.Empty;
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public int CategoryId { get; set; }
-        public int UserId { get; set; }
+        public int StoreId { get; set; }
     }
 }

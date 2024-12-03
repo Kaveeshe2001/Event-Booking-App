@@ -1,13 +1,20 @@
-﻿using EventBookingBackend.Models;
+﻿using EventBookingBackend.Data;
+using EventBookingBackend.Models;
 using EventBookingBackend.Repositories.Interface;
 
 namespace EventBookingBackend.Repositories.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {
-        public Task<List<Category>> GetAllAsync()
+        private readonly ApplicationDbContext _context;
+
+        public CategoryRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<List<Category>> GetAllAsync()
+        {
+            return await _context.Category.ToListAsync();
         }
 
         public Task<Category?> CreateAsync(Category categorymodel)
