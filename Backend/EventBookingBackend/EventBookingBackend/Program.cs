@@ -58,6 +58,7 @@ namespace EventBookingBackend
             });
 
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<IStoreRepository, StoreRepository>();
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
