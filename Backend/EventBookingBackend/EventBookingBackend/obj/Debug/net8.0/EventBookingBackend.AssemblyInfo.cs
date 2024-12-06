@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventBookingBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e768cf793d043f926fa4f97d6b219495bf8026e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1c3bd66bc3520478676b7e2eadf7272e9f2d2c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventBookingBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventBookingBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
