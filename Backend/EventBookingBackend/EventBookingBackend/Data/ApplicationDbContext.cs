@@ -1,5 +1,6 @@
 ﻿using EventBookingBackend.Models;
 using EventBookingBackend.Models.Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +32,13 @@ namespace EventBookingBackend.Data
                 .HasForeignKey(a => a.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<Event>()
+                .HasMany(a => a.Booking)
+                .WithOne(u => u.Events)
+                .HasForeignKey(a => a.EventId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
             //Store Model Relations
             builder.Entity<Store>(x => x.HasKey(p => new { p.Id }));
 
@@ -39,12 +47,28 @@ namespace EventBookingBackend.Data
                 .WithOne(u => u.Store)
                 .HasForeignKey<Store>(a => a.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            List<IdentityRole> roles = new List<IdentityRole>
+            {
+                new IdentityRole
+                {
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new IdentityRole
+                {
+                    Name = "User",
+                    NormalizedName = "USER"
+                }
+            };
+            builder.Entity<IdentityRole>().HasData(roles);
         }
 
         public DbSet<TokenInfo> TokenInfo { get; set; }
         public DbSet<Event> Event { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Store> Store { get; set; }
+        public DbSet<Booking> Booking { get; set; }
 
     }
 }

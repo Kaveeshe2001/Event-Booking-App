@@ -45,5 +45,10 @@ namespace EventBookingBackend.Models
         public int StoreId { get; set; }
         public Store Store { get; set; }
 
+        [Required]
+        [ForeignKey("Booking")]
+        public int BookingId { get; set; }
+        public ICollection<Booking> Booking { get; set; }
+
     }
 }

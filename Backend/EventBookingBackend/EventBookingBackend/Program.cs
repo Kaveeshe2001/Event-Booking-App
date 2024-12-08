@@ -36,20 +36,20 @@ namespace EventBookingBackend
                     BearerFormat = "JWT",
                     Scheme = "Bearer"
                 });
-                option.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
+                option.AddSecurityRequirement(new OpenApiSecurityRequirement 
                 {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
-                }
-            },
-            new string[]{}
-        }
-    });
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            }
+                        },
+                        new string[]{}
+                    }
+                });
             });
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -59,6 +59,7 @@ namespace EventBookingBackend
 
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IStoreRepository, StoreRepository>();
+            builder.Services.AddScoped<IEventRepository, EventRepository>();
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
