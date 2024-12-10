@@ -1,0 +1,27 @@
+textarea {
+    background: #001f33; /* Dark blue background to mimic night sky */
+    color: #ffffff; /* White text for contrast */
+    font-family: var(--font-dmsans);
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    padding: 20px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for visibility */
+    min-height: 120px;
+    max-height: 300px; /* Optional: adjust as needed */
+    resize: vertical;   /* Allows vertical resizing */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+  }
+  
+  textarea:focus {
+    border-color: #00aaff; /* Lighter blue for focus effect */
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.5); /* Glowing effect on focus */
+  }
+  
+  /* Optional: To simulate a starry effect */
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Light placeholder text */
+  }
+  
