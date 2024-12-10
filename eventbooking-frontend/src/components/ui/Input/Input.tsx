@@ -4,7 +4,7 @@ type InputProps = {
     label? : string;
     type: string;
     id: string;
-    placeHolder? : string;
+    placeholder? : string;
     name: string;
     value? : string;
     onChange? : (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -16,7 +16,7 @@ const Input = ({
     label,
     type,
     id,
-    //placeHolder,
+    placeholder,
     name,
     value,
     onChange,
@@ -28,7 +28,7 @@ const Input = ({
             {label && <label htmlFor={id}>{label}</label>}
             <input 
                type={type}
-               //placeHolder={placeHolder}
+               placeholder={placeholder}
                id={id}
                name={name}
                value={value}
