@@ -1,0 +1,89 @@
+/* Hide search form on small screens and show on larger screens */
+.search-form {
+    display: none;
+  }
+  
+  @media (min-width: 1200px) {
+    .search-form {
+        display: flex;
+    }
+  }
+  
+  /* Inner search container */
+  .search-form .form-inner-search {
+    display: flex;
+    min-width: 468px;
+    position: relative;
+    line-height: 1;
+  }
+  
+  /* Adjust minimum width for medium-large screens */
+  @media (min-width: 1400px) and (max-width: 1599px) {
+    .search-form .form-inner-search {
+        min-width: 400px;
+    }
+  }
+  
+  /* Input field styles */
+  .search-form .form-inner-search input {
+    border: 1px solid hsla(0, 0%, 90%, .3); /* Adjusted border color */
+    border-radius: 5px; /* Set rounded edges for input */
+    background-color: var(--white-color); /* Use theme color */
+    height: 48px;
+    line-height: 1;
+    color: var(--title-color); /* Updated text color */
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  /* Search button styles */
+  .search-form .form-inner-search .search-btn {
+    padding: 14px 33px;
+    background-color: var(--primary-color); /* Use theme primary color */
+    border-radius: 5px; /* Set rounded edges for the button */
+    border: none;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease; /* Slightly faster transition */
+    cursor: pointer;
+  }
+  
+  /* Button hover effects */
+  .search-form .form-inner-search .search-btn::after {
+    position: absolute;
+    content: "";
+    display: block;
+    left: 15%;
+    right: -20%;
+    top: -4%;
+    height: 160%;
+    width: 160%;
+    border-radius: 5px; /* Set rounded edges for hover effect */
+    background-color: rgba(255, 255, 255, 0.8); /* Updated for better contrast */
+    transform: skewX(45deg) scaleX(0);
+    z-index: -1;
+    transition: all 0.3s ease-out; /* Slightly faster transition */
+  }
+  
+  /* Change SVG color on hover */
+  .search-form .form-inner-search .search-btn:hover svg {
+    fill: #000; /* Updated SVG color on hover */
+  }
+  
+  @media (max-width: 1399px) {
+    .search-form .form-inner-search .search-btn {
+        padding: 15px 25px; /* Adjust padding on smaller screens */
+    }
+  }
+  
+  /* Show button effect on hover */
+  .search-form .form-inner-search .search-btn:hover::after {
+    transform: skewX(45deg) scale(1); /* Show background effect on hover */
+  }
+  
