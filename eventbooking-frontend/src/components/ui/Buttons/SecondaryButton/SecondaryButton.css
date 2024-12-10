@@ -1,0 +1,51 @@
+.sec-btn {
+    color: var(--white-color);
+    font-family: var(--font-dmsans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 5px;
+    background-color: var(--primary-color2);
+    padding: 8px 20px;
+    transition: background-color .3s ease, transform .3s ease; /* Smooth background color and transform transition */
+  }
+  
+  .sec-btn.lg {
+    padding: 13px 20px;
+    margin-bottom: 10px;
+  }
+  
+  .sec-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+  }
+  
+  .sec-btn.nonActive {
+    background-color: rgba(var(--title-color-opc), .08);
+    color: var(--title-color);
+    border: none;
+  }
+  
+  /* Hover effects */
+  .sec-btn:hover {
+    background-color: var(--primary-color); /* Change to primary color on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+  }
+  
+  .sec-btn.lg:hover {
+    background-color: var(--primary-color); /* Same for large buttons */
+    transform: scale(1.05); /* Slightly increase size on hover */
+  }
+  
+  .sec-btn.active:hover {
+    background-color: var(--primary-color2); /* Change back to secondary color on active hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+  }
+  
+  .sec-btn.nonActive:hover {
+    background-color: rgba(var(--title-color-opc), .15); /* Darken the non-active button on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+  }
+  
