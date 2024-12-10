@@ -1,0 +1,72 @@
+/* General Body Styles */
+body {
+    background-color: #1a1a2e; /* Dark navy background */
+    color: #eaeaea; /* Light gray text for better contrast */
+    font-family: var(--font-dmsans);
+}
+
+/* Form Styles */
+.form {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white for a frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for subtle separation */
+    border-radius: 10px;
+    padding: 40px 70px;
+    margin-left: 75px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+}
+
+/* Upload Image Styles */
+.upload-image {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    margin: 10px 0;
+    overflow: hidden; /* Hide overflow for better aesthetics */
+    border-radius: 10px; /* Rounded corners */
+    background: url('path/to/stars-background.png') center center / cover no-repeat; /* Starry background image */
+}
+
+.upload-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 10px; /* Match the border radius */
+}
+
+.upload-image-profile {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 10px 0;
+    float: left;
+    border-radius: 10px; /* Rounded corners */
+    background: url('path/to/stars-background.png') center center / cover no-repeat; /* Starry background image */
+}
+
+.upload-image-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 10px; /* Match the border radius */
+}
+
+/* Optional: Add some stars animation */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.upload-image::before,
+.upload-image-profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('path/to/sparkles.png') repeat;
+    animation: twinkle 1.5s infinite;
+    opacity: 0.5; /* Add a twinkling effect */
+}
