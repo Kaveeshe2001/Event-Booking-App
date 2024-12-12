@@ -1,0 +1,124 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    padding: 30px 20px !important;
+    z-index: 99999;
+    height: 100%;
+    overflow: auto;
+    background: #fff;
+    border-right: 1px solid #eee;
+    transform: translateX(-100%);
+    transition: transform .3s ease-in;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .03);
+   
+    .logo {
+     text-align: left;
+     padding-top: 20px;
+     display: flex;
+     justify-content: center;
+     padding-bottom: 8px
+    }
+   
+    .menu-list {
+     float: none;
+     text-align: left;
+     padding: 5px 0 20px;
+     list-style: none;
+     margin: 0;
+     padding: 0;
+    }
+   
+    .menu-list li {
+     display: block;
+     position: relative;
+     padding: 0 5px;
+    }
+   
+    .menu-list li a {
+     padding: 10px 0;
+     display: block;
+     color: var(--title-color);
+     display: block;
+     letter-spacing: .4px;
+     padding: 25px 0;
+     font-family: var(--font-dmsans);
+     font-weight: 600;
+     font-size: 16px;
+     transition: all .5s ease-out 0s;
+     position: relative;
+    }
+   
+    .contact-area {
+     margin: 0;
+     list-style: none;
+     padding: 0 0 20px;
+     flex-wrap: wrap;
+     float: none;
+     text-align: left;
+     display: flex;
+    }
+   
+    .contact-area li {
+     position: relative;
+     display: block;
+     padding: 0 5px;
+    }
+   
+    .contact-area li a {
+     color: var(--title-color);
+     font-size: 15px;
+     font-weight: 500;
+     line-height: 20px;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     transition: .5s;
+     padding: 10px 0
+    }
+   
+    .contact-area li a svg {
+     fill: var(--title-color);
+     transition: .5s
+    }
+   
+    .contact-area li a:hover {
+     color: var(--primary-color)
+    }
+   
+    .contact-area li a:hover svg {
+     fill: var(--primary-color)
+    }
+   
+    .search-form {
+     display: flex;
+     width: 100%;
+    }
+   
+    .search-form .form-inner {
+     min-width: 100%;
+    }
+   
+    .search-form .form-inner input {
+     width: 100%;
+     height: 44px;
+     padding: 10px 12px;
+     font-size: 14px;
+    }
+   
+    .search-form .search-btn {
+     padding: 12px 25px;
+    }
+   
+    .my-acc-btn {
+     display: flex;
+     margin-top: 20px;
+     justify-content: center;
+    }
+   
+   }
+   
+   .sidebar.active {
+    transform: translateX(0)
+   }
