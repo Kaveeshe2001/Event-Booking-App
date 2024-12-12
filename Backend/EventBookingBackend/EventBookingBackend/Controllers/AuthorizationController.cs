@@ -207,7 +207,8 @@ namespace EventBookingBackend.Controllers
                 UserName = registerDto.Username,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 Email = registerDto.Email,
-                Name = registerDto.Name
+                Name = registerDto.Name,
+                PhoneNumber = registerDto.PhoneNumber,
             };
 
             // create a user here
