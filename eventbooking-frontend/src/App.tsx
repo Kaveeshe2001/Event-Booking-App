@@ -1,10 +1,12 @@
-import Navbar from "./components/shared/Navbar/Navbar"
+import PrimaryButton from "./components/ui/Buttons/PrimaryButton/PrimaryButton"
+import SecondaryButton from "./components/ui/Buttons/SecondaryButton/SecondaryButton"
 
 function App() {
 
   return (
     <>
-      <Navbar />
+        <PrimaryButton text='Login' variant='default' link='/login' />
+        <SecondaryButton text='Book Now' variant='active' link='/book' />
     </>
   )
 }
