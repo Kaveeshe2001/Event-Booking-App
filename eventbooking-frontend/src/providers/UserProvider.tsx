@@ -110,8 +110,8 @@ export const UserProvider = ({ children }: Props) => {
     };
 
     const isLoggedIn = () => {
-        return !!user;
-    };
+        return !!user && !!token;
+    };    
 
     const logout = () => {
         localStorage.removeItem('token');
